@@ -35,8 +35,8 @@ public class Irving {
 
     public static void main(Context context) throws IOException {
 
-        String[] monthsToTest = { "092015", "102015","112015", "122015","012016"};     //list of months you want to check : mmYYYY format
-        String[] phoneNumbers = {"1112223333", "4445555666"};   //numbers to send sms
+        String[] monthsToTest = { "092015", "102015","112015", "122015","012016"};     //update: list of months you want to check : mmYYYY format
+        String[] phoneNumbers = {"1112223333", "4445555666"};   //update: numbers to send sms
 
         for(String month : monthsToTest) {
             start(month);
@@ -44,7 +44,7 @@ public class Irving {
 
         //TODO: send sms when we dont have any available dates
         if(latestAvailableDates.isEmpty()){
-            Toast.makeText(context, "No dates available in given months", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context, "No dates available in given months", Toast.LENGTH_SHORT).show();
             Log.e(TAG, "No dates available in given months");
             return;
         }
@@ -159,30 +159,11 @@ public class Irving {
 
 
         Document doc = Jsoup.connect("https://booknow.securedata-trans.com/1qecsc5v/")   //Update path parameter here
-                .data("selection-form", "yes")
-                .data("d", "appointplus210")
-                .data("page", "10")
-                .data("m", "2")
-                .data("type", "17")
-                .data("auth", "yes")
-                .data("action", "log_in")
-                .data("customer_id", "1613082")       //update
-                .data("customer_location_id", "551")     //update
-                .data("day_name", "any")
-                .data("location_id", "551")      //update
-                .data("id", "551")        //update
-                .data("headquarters_id", "2")       //update
                 .data("service_id", "2")
-                .data("e_id", "all")
                 .data("next_date", currDate)
                 .data("prev_date", prevPrevDate)
                 .data("starting_date", prevDate)
                 .data("date_ymd", date_ymd)
-                .data("view_prev_month", "no")
-                .data("view_next_month", "yes")
-                .referrer("https://booknow.securedata-trans.com/1qecsc5v/")
-                .userAgent("Mozilla")
-                .cookie("PHPSESSID", "k2qtfgkehht9705kp6p0c1ft21")        //update
                 .post();
 
         Elements links = doc.select("a[id=cv-leftnav-item-calendar-available-id]");
