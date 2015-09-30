@@ -4,6 +4,7 @@
 - This app polls to fetch all the available dates for a DPS driving test. This is a hack around the way DPS website works, I am not using any public API.
 
 As a prep for this app, I logged into DPS website, parsed their HTML content and tried to understand their request structure. I coded for a similar structure in the app which will make these calls periodically to see all the available dates in the months I am looking for. If there is a new date available, the app will notify me and my friends over SMS.
+I have added details on my blog : http://deepakmishra.me/blog/index.php/2015/09/27/saving-time-in-dps/
 
 I coded this in a few hours, for my personal use, so don't expect perfect code - it just works for me.
 I have added comments which should help understand what things to update for your use.
